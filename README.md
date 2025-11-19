@@ -1,59 +1,62 @@
-# Book Library Management System - REST API
+Book Library Management System - REST API
 
 A comprehensive REST API for managing a book library, built with Spring Boot, H2 database, and comprehensive unit tests using JUnit and Mockito.
 
-## 🚀 Features
+ 🚀 Features
 
-- **Complete CRUD Operations** for book management
-- **Advanced Search** by title, author, genre, and ISBN
-- **Availability Tracking** for books
-- **Input Validation** with detailed error messages
-- **Global Exception Handling** for consistent error responses
-- **H2 In-Memory Database** for easy setup and testing
-- **Comprehensive Unit Tests** with JUnit 5 and Mockito
-- **RESTful API Design** following best practices
-- **Sample Data Initialization** for quick testing
+- Complete CRUD Operations for book management
+- Advanced Search by title, author, genre, and ISBN
+- Availability Tracking for books
+- Input Validation with detailed error messages
+- Global Exception Handling for consistent error responses
+- H2 In-Memory Database for easy setup and testing
+- Comprehensive Unit Tests with JUnit 5 and Mockito
+- RESTful API Design following best practices
+- Sample Data Initialization for quick testing
+- Swagger UI for interactive API documentation and testing
 
-## 📋 Prerequisites
+ 📋 Prerequisites
 
 - Java 17 or higher
 - Maven 3.6 or higher
 
-## 🛠️ Tech Stack
+ 🛠️ Tech Stack
 
-- **Spring Boot 3.2.0** - Application framework
-- **Spring Data JPA** - Data persistence
-- **H2 Database** - In-memory database
-- **Lombok** - Reduce boilerplate code
-- **JUnit 5** - Unit testing framework
-- **Mockito** - Mocking framework
-- **Maven** - Dependency management
+- Spring Boot 3.2.0 - Application framework
+- Spring Data JPA - Data persistence
+- H2 Database - In-memory database
+- Lombok - Reduce boilerplate code
+- SpringDoc OpenAPI - Swagger UI integration
+- JUnit 5 - Unit testing framework
+- Mockito - Mocking framework
+- Maven - Dependency management
 
-## 📦 Installation & Setup
+ 📦 Installation & Setup
 
-1. **Clone the repository**
+1. Clone the repository
    ```bash
    cd "c:\Users\HomePC\Desktop\JAVA PROJECT FOR CV"
    ```
 
-2. **Build the project**
+2. Build the project
    ```bash
    mvn clean install
    ```
 
-3. **Run the application**
+3. Run the application
    ```bash
    mvn spring-boot:run
    ```
 
-4. **Access the application**
+4. Access the application
+   - Swagger UI (API Documentation): `http://localhost:8080/swagger-ui.html`
    - API Base URL: `http://localhost:8080/api/books`
    - H2 Console: `http://localhost:8080/h2-console`
      - JDBC URL: `jdbc:h2:mem:booklibrarydb`
      - Username: `sa`
      - Password: (leave empty)
 
-## 🧪 Running Tests
+ 🧪 Running Tests
 
 Run all unit tests:
 ```bash
@@ -65,9 +68,29 @@ Run tests with coverage:
 mvn clean test jacoco:report
 ```
 
-## 📚 API Endpoints
+ 🎨 Swagger UI - Interactive API Documentation
 
-### Book Management
+The easiest way to explore and test the API is through Swagger UI:
+
+1. Start the application (see Installation & Setup above)
+2. Open your browser and navigate to: `http://localhost:8080/swagger-ui.html`
+3. Explore the API:
+   - See all available endpoints
+   - View request/response schemas
+   - Try out endpoints directly in the browser
+   - No need for Postman or curl commands!
+
+# What You Can Do with Swagger UI:
+- ✅ Browse all API endpoints organized by controller
+- ✅ View detailed request and response models
+- ✅ Test endpoints with the "Try it out" button
+- ✅ See real-time responses from your API
+- ✅ Understand required vs optional parameters
+- ✅ Export OpenAPI specification at: `http://localhost:8080/api-docs`
+
+ 📚 API Endpoints
+
+# Book Management
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -83,19 +106,19 @@ mvn clean test jacoco:report
 | PATCH | `/api/books/{id}/availability` | Update book availability |
 | DELETE | `/api/books/{id}` | Delete a book |
 
-## 📝 API Examples
+ 📝 API Examples
 
-### 1. Get All Books
+# 1. Get All Books
 ```bash
 curl -X GET http://localhost:8080/api/books
 ```
 
-### 2. Get Book by ID
+# 2. Get Book by ID
 ```bash
 curl -X GET http://localhost:8080/api/books/1
 ```
 
-### 3. Create a New Book
+# 3. Create a New Book
 ```bash
 curl -X POST http://localhost:8080/api/books \
   -H "Content-Type: application/json" \
@@ -110,7 +133,7 @@ curl -X POST http://localhost:8080/api/books \
   }'
 ```
 
-### 4. Update a Book
+# 4. Update a Book
 ```bash
 curl -X PUT http://localhost:8080/api/books/1 \
   -H "Content-Type: application/json" \
@@ -125,31 +148,31 @@ curl -X PUT http://localhost:8080/api/books/1 \
   }'
 ```
 
-### 5. Update Book Availability
+# 5. Update Book Availability
 ```bash
 curl -X PATCH http://localhost:8080/api/books/1/availability \
   -H "Content-Type: application/json" \
   -d '{"available": false}'
 ```
 
-### 6. Search Books by Author
+# 6. Search Books by Author
 ```bash
 curl -X GET "http://localhost:8080/api/books/search/author?author=Martin"
 ```
 
-### 7. Get Available Books
+# 7. Get Available Books
 ```bash
 curl -X GET http://localhost:8080/api/books/available
 ```
 
-### 8. Delete a Book
+# 8. Delete a Book
 ```bash
 curl -X DELETE http://localhost:8080/api/books/1
 ```
 
-## 📊 Data Model
+ 📊 Data Model
 
-### Book Entity
+# Book Entity
 
 ```json
 {
@@ -164,21 +187,21 @@ curl -X DELETE http://localhost:8080/api/books/1
 }
 ```
 
-### Field Validations
+# Field Validations
 
-- **title**: Required, 1-200 characters
-- **author**: Required, 1-100 characters
-- **isbn**: Required, 10-13 characters, must be unique
-- **publicationDate**: Required, date format
-- **genre**: Optional, max 50 characters
-- **available**: Optional, defaults to true
-- **description**: Optional, max 1000 characters
+- title: Required, 1-200 characters
+- author: Required, 1-100 characters
+- isbn: Required, 10-13 characters, must be unique
+- publicationDate: Required, date format
+- genre: Optional, max 50 characters
+- available: Optional, defaults to true
+- description: Optional, max 1000 characters
 
-## 🔍 Error Handling
+ 🔍 Error Handling
 
 The API provides consistent error responses:
 
-### 404 Not Found
+# 404 Not Found
 ```json
 {
   "status": 404,
@@ -187,7 +210,7 @@ The API provides consistent error responses:
 }
 ```
 
-### 409 Conflict
+# 409 Conflict
 ```json
 {
   "status": 409,
@@ -196,7 +219,7 @@ The API provides consistent error responses:
 }
 ```
 
-### 400 Bad Request (Validation Errors)
+# 400 Bad Request (Validation Errors)
 ```json
 {
   "status": 400,
@@ -208,13 +231,13 @@ The API provides consistent error responses:
 }
 ```
 
-## 🧪 Test Coverage
+ 🧪 Test Coverage
 
 The project includes comprehensive unit tests:
 
-- **BookServiceTest**: Tests for service layer business logic
-- **BookControllerTest**: Tests for REST API endpoints
-- **BookRepositoryTest**: Tests for database operations
+- BookServiceTest: Tests for service layer business logic
+- BookControllerTest: Tests for REST API endpoints
+- BookRepositoryTest: Tests for database operations
 
 Test categories:
 - ✅ CRUD operations
@@ -223,7 +246,7 @@ Test categories:
 - ✅ Exception handling
 - ✅ Edge cases
 
-## 📁 Project Structure
+ 📁 Project Structure
 
 ```
 book-library-api/
@@ -262,19 +285,19 @@ book-library-api/
 └── README.md
 ```
 
-## 🎯 Sample Data
+ 🎯 Sample Data
 
 The application comes with 5 pre-loaded books for testing:
 
-1. **Clean Code** by Robert C. Martin
-2. **Effective Java** by Joshua Bloch
-3. **Design Patterns** by Erich Gamma
-4. **Spring in Action** by Craig Walls
-5. **The Pragmatic Programmer** by Andrew Hunt
+1. Clean Code by Robert C. Martin
+2. Effective Java by Joshua Bloch
+3. Design Patterns by Erich Gamma
+4. Spring in Action by Craig Walls
+5. The Pragmatic Programmer by Andrew Hunt
 
-## 🔧 Configuration
+ 🔧 Configuration
 
-### Application Properties
+# Application Properties
 
 Key configurations in `application.properties`:
 
@@ -285,7 +308,7 @@ spring.jpa.hibernate.ddl-auto=update
 spring.h2.console.enabled=true
 ```
 
-## 🚀 Future Enhancements
+ 🚀 Future Enhancements
 
 - [ ] Add pagination and sorting
 - [ ] Implement user authentication and authorization
@@ -296,18 +319,18 @@ spring.h2.console.enabled=true
 - [ ] Add API documentation with Swagger/OpenAPI
 - [ ] Deploy to cloud platform
 
-## 📄 License
+ 📄 License
 
 This project is created for educational and portfolio purposes.
 
-## 👤 Author
+ 👤 Author
 
 Created as a demonstration project for CV/Portfolio purposes.
 
-## 🤝 Contributing
+ 🤝 Contributing
 
 This is a portfolio project, but suggestions and feedback are welcome!
 
 ---
 
-**Happy Coding! 📚**
+Happy Coding! 📚
