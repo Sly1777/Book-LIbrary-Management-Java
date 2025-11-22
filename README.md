@@ -1,11 +1,11 @@
 ````md
-# Book Library Management System – REST API
+Book Library Management System – REST API
 
 A REST API for managing a book library, built using **Spring Boot**, **H2 database**, and **JUnit + Mockito** for unit testing.
 
 ---
 
-## 1. Features
+ 1. Features
 
 - Full CRUD operations  
 - Search by title, author, genre, ISBN  
@@ -19,14 +19,14 @@ A REST API for managing a book library, built using **Spring Boot**, **H2 databa
 
 ---
 
-## 2. Requirements
+ 2. Requirements
 
 - Java 17+  
 - Maven 3.6+  
 
 ---
 
-## 3. Tech Stack
+ 3. Tech Stack
 
 | Technology         | Purpose              |
 |-------------------|----------------------|
@@ -41,7 +41,7 @@ A REST API for managing a book library, built using **Spring Boot**, **H2 databa
 
 ---
 
-## 4. Installation & Running
+ 4. Installation & Running
 
 ```bash
 cd "C:\Users\HomePC\Desktop\JAVA PROJECT FOR CV"
